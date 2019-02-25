@@ -1,5 +1,7 @@
 import json
 import urllib
+import csv
+
 
 def elevation(lat, lng):
     apikey = "GET YOU OWN KEY FROM THE GOOGLE ELEVATION API WEBSITE"
@@ -15,3 +17,11 @@ def elevation(lat, lng):
             print 'HTTP GET Request failed.'
     except ValueError, e:
         print 'JSON decode failed: '+str(request)
+        
+with open("nodeCSViSentYou.csv") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(" ".join(row))
+        #Get the colum for Lat and Long.
+        #Plug it into the function above. 
+        #Write it into the column for Elevation that already exists. 
